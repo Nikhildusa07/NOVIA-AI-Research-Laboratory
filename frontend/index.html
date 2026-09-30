@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>NOVIA — AI Research Laboratory</title>
+
+    <meta
+        name="description"
+        content="NOVIA — Self-Evolving Multi-Agent AI Research Laboratory"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="app">
+
+    <!-- =========================================================
+         MOBILE OVERLAY
+    ========================================================== -->
+
+    <div
+        id="mobileOverlay"
+        class="mobile-overlay"
+        onclick="closeSidebar()"
+    ></div>
+
+
+    <!-- =========================================================
+         SIDEBAR
+    ========================================================== -->
+
+    <aside id="sidebar" class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-mark">
+                N
+            </div>
+
+            <div>
+                <div class="brand-name">
+                    NOVIA
+                </div>
+
+                <div class="brand-subtitle">
+                    AI Research Laboratory
+                </div>
+            </div>
+
+        </div>
+
+        <div class="sidebar-divider"></div>
+
+
+        <nav class="navigation">
+
+            <button
+                type="button"
+                class="nav-item active"
+                data-page="research"
+            >
+                <span class="nav-icon">⌁</span>
+                <span>Research</span>
+            </button>
+
+            <button
+                type="button"
+                class="nav-item"
+                data-page="results"
+            >
+                <span class="nav-icon">◇</span>
+                <span>Results</span>
+            </button>
+
+            <button
+                type="button"
+                class="nav-item"
+                data-page="graph"
+            >
+                <span class="nav-icon">◎</span>
+                <span>Knowledge Graph</span>
+            </button>
+
+            <button
+                type="button"
+                class="nav-item"
+                data-page="literature"
+            >
+                <span class="nav-icon">▤</span>
+                <span>Literature</span>
+            </button>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="laboratory-status">
+
+                <span class="status-dot"></span>
+
+                <div>
+                    <strong>Laboratory Online</strong>
+
+                    <span>
+                        Autonomous research engine
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="version">
+                NOVIA v1.0
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =========================================================
+         MAIN CONTENT
+    ========================================================== -->
+
+    <main class="main-content">
+
+        <!-- MOBILE HEADER -->
+
+        <header class="mobile-header">
+
+            <button
+                type="button"
+                class="menu-button"
+                onclick="toggleSidebar()"
+                aria-label="Open navigation"
+            >
+                ☰
+            </button>
+
+            <div class="mobile-brand">
+                NOVIA
+            </div>
+
+            <div
+                id="mobileStatusDot"
+                class="mobile-status-dot"
+            ></div>
+
+        </header>
+
+
+        <!-- =====================================================
+             TOP HEADER
+        ====================================================== -->
+
+        <section class="top-header">
+
+            <div>
+
+                <div class="eyebrow">
+                    SELF-EVOLVING MULTI-AGENT SYSTEM
+                </div>
+
+                <h1>
+                    Research Intelligence
+                </h1>
+
+                <p>
+                    Coordinate specialized AI agents to research,
+                    experiment, verify and evolve scientific hypotheses.
+                </p>
+
+            </div>
+
+
+            <div class="system-status">
+
+                <span class="status-dot"></span>
+
+                <span id="systemStatusText">
+                    Checking system...
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             RESEARCH PAGE
+        ====================================================== -->
+
+        <section
+            id="page-research"
+            class="page active-page"
+        >
+
+            <div class="section-heading">
+
+                <div>
+
+                    <div class="eyebrow">
+                        RESEARCH LABORATORY
+                    </div>
+
+                    <h2>
+                        Start Research
+                    </h2>
+
+                    <p>
+                        Define a research question and configure
+                        the autonomous laboratory.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="research-form-card">
+
+                <label for="researchQuestion">
+                    Research Question
+                </label>
+
+                <textarea
+                    id="researchQuestion"
+                    rows="5"
+                    placeholder="Enter a research question..."
+                >Can machine learning predict house prices accurately?</textarea>
+
+
+                <div class="form-grid">
+
+                    <div class="field">
+
+                        <label for="datasetType">
+                            Dataset
+                        </label>
+
+                        <select id="datasetType">
+
+                            <option value="synthetic">
+                                NOVIA Synthetic Dataset
+                            </option>
+
+                            <option value="california_housing">
+                                California Housing Dataset
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label for="maxCycles">
+                            Maximum Research Cycles
+                        </label>
+
+                        <select id="maxCycles">
+
+                            <option value="1">
+                                1 Cycle
+                            </option>
+
+                            <option value="2">
+                                2 Cycles
+                            </option>
+
+                            <option value="3" selected>
+                                3 Cycles
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <button
+                        id="startResearchButton"
+                        type="button"
+                        class="primary-button"
+                    >
+                        <span>Start Autonomous Research</span>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Research pipeline -->
+
+            <div class="process-section">
+
+                <div class="eyebrow">
+                    RESEARCH PIPELINE
+                </div>
+
+                <h2>
+                    Autonomous Research Loop
+                </h2>
+
+                <div class="process-grid">
+
+                    <div class="process-card">
+                        <span class="process-number">01</span>
+                        <strong>Research</strong>
+                        <span>Literature retrieval</span>
+                    </div>
+
+                    <div class="process-card">
+                        <span class="process-number">02</span>
+                        <strong>Hypothesis</strong>
+                        <span>Scientific hypothesis</span>
+                    </div>
+
+                    <div class="process-card">
+                        <span class="process-number">03</span>
+                        <strong>Experiment</strong>
+                        <span>Automated execution</span>
+                    </div>
+
+                    <div class="process-card">
+                        <span class="process-number">04</span>
+                        <strong>Analysis</strong>
+                        <span>Evidence analysis</span>
+                    </div>
+
+                    <div class="process-card">
+                        <span class="process-number">05</span>
+                        <strong>Verification</strong>
+                        <span>Independent validation</span>
+                    </div>
+
+                    <div class="process-card">
+                        <span class="process-number">06</span>
+                        <strong>Evolution</strong>
+                        <span>Next hypothesis</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Error -->
+
+            <div
+                id="researchError"
+                class="alert-card error-card hidden"
+            >
+
+                <div class="alert-title">
+                    Research Error
+                </div>
+
+                <div id="researchErrorMessage"></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             RESULTS PAGE
+        ====================================================== -->
+
+        <section
+            id="page-results"
+            class="page"
+        >
+
+            <div id="resultsEmpty" class="empty-state">
+
+                <div class="empty-icon">
+                    ◇
+                </div>
+
+                <h2>
+                    No Research Results
+                </h2>
+
+                <p>
+                    Start an autonomous research session to see
+                    experiments, evidence and conclusions here.
+                </p>
+
+                <button
+                    type="button"
+                    class="secondary-button"
+                    onclick="navigate('research')"
+                >
+                    Start Research
+                </button>
+
+            </div>
+
+
+            <div
+                id="resultsContent"
+                class="hidden"
+            >
+
+                <div class="section-heading results-heading">
+
+                    <div>
+
+                        <div class="eyebrow">
+                            RESEARCH LABORATORY
+                        </div>
+
+                        <h2>
+                            Research Results
+                        </h2>
+
+                        <p id="resultsQuestion"></p>
+
+                    </div>
+
+                    <div
+                        id="cycleBadge"
+                        class="cycle-badge"
+                    >
+                        0 cycles completed
+                    </div>
+
+                </div>
+
+
+                <!-- Metrics -->
+
+                <div class="metrics-grid">
+
+                    <div class="metric-card">
+
+                        <span>
+                            Research ID
+                        </span>
+
+                        <strong id="metricResearchId">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="metric-card">
+
+                        <span>
+                            Cycles Completed
+                        </span>
+
+                        <strong id="metricCycles">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="metric-card">
+
+                        <span>
+                            Literature Sources
+                        </span>
+
+                        <strong id="metricSources">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="metric-card">
+
+                        <span>
+                            Dataset
+                        </span>
+
+                        <strong
+                            id="metricDataset"
+                            class="metric-small"
+                        >
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Cycles -->
+
+                <div class="results-section">
+
+                    <div class="eyebrow">
+                        ITERATIVE RESEARCH
+                    </div>
+
+                    <div class="results-section-title-row">
+
+                        <h2>
+                            Research Cycles
+                        </h2>
+
+                        <div
+                            id="cycleTabs"
+                            class="cycle-tabs"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+                <div id="cyclesContainer"></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             KNOWLEDGE GRAPH PAGE
+        ====================================================== -->
+
+        <section
+            id="page-graph"
+            class="page"
+        >
+
+            <div class="section-heading">
+
+                <div>
+
+                    <div class="eyebrow">
+                        RESEARCH KNOWLEDGE
+                    </div>
+
+                    <h2>
+                        Knowledge Graph
+                    </h2>
+
+                    <p>
+                        Visual representation of research evidence,
+                        experiments, agents and relationships.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="graph-toolbar">
+
+                <input
+                    id="graphSearch"
+                    type="search"
+                    placeholder="Search nodes..."
+                    autocomplete="off"
+                >
+
+                <button
+                    type="button"
+                    class="secondary-button"
+                    onclick="resetGraph()"
+                >
+                    Reset View
+                </button>
+
+                <button
+                    type="button"
+                    class="secondary-button"
+                    onclick="zoomGraph(1.2)"
+                    aria-label="Zoom in"
+                >
+                    +
+                </button>
+
+                <button
+                    type="button"
+                    class="secondary-button"
+                    onclick="zoomGraph(0.8)"
+                    aria-label="Zoom out"
+                >
+                    −
+                </button>
+
+            </div>
+
+
+            <div class="graph-layout">
+
+                <div class="graph-container">
+
+                    <svg
+                        id="knowledgeGraph"
+                        viewBox="0 0 1200 720"
+                        preserveAspectRatio="xMidYMid meet"
+                        aria-label="NOVIA knowledge graph"
+                    >
+
+                        <g id="graphViewport">
+
+                            <g id="graphRelationships"></g>
+
+                            <g id="graphNodes"></g>
+
+                        </g>
+
+                    </svg>
+
+
+                    <div
+                        id="graphEmpty"
+                        class="graph-empty"
+                    >
+                        Run research to populate the knowledge graph.
+                    </div>
+
+                </div>
+
+
+                <aside
+                    id="graphDetails"
+                    class="graph-details"
+                >
+
+                    <div class="eyebrow">
+                        NODE DETAILS
+                    </div>
+
+                    <h3 id="graphDetailsTitle">
+                        Select a node
+                    </h3>
+
+                    <div
+                        id="graphDetailsContent"
+                        class="graph-details-content"
+                    >
+                        Select a node in the graph to inspect
+                        its properties and relationships.
+                    </div>
+
+                </aside>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             LITERATURE PAGE
+        ====================================================== -->
+
+        <section
+            id="page-literature"
+            class="page"
+        >
+
+            <div class="section-heading">
+
+                <div>
+
+                    <div class="eyebrow">
+                        EVIDENCE COLLECTION
+                    </div>
+
+                    <h2>
+                        Literature Research
+                    </h2>
+
+                    <p>
+                        External research sources retrieved by
+                        the NOVIA Research Agent.
+                    </p>
+
+                </div>
+
+                <div
+                    id="literatureCount"
+                    class="cycle-badge"
+                >
+                    0 Sources
+                </div>
+
+            </div>
+
+
+            <div
+                id="literatureContainer"
+                class="literature-grid"
+            >
+
+                <div class="empty-state compact">
+
+                    <div class="empty-icon">
+                        ▤
+                    </div>
+
+                    <h3>
+                        No Literature Available
+                    </h3>
+
+                    <p>
+                        Run a research session to retrieve
+                        external sources.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             LOADING OVERLAY
+        ====================================================== -->
+
+        <div
+            id="loadingOverlay"
+            class="loading-overlay hidden"
+        >
+
+            <div class="loading-card">
+
+                <div class="loader"></div>
+
+                <h3>
+                    NOVIA is researching
+                </h3>
+
+                <p id="loadingMessage">
+                    Coordinating research agents...
+                </p>
+
+                <div class="loading-steps">
+
+                    <span id="loadingStep1">
+                        Research
+                    </span>
+
+                    <span id="loadingStep2">
+                        Hypothesis
+                    </span>
+
+                    <span id="loadingStep3">
+                        Experiment
+                    </span>
+
+                    <span id="loadingStep4">
+                        Verification
+                    </span>
+
+                    <span id="loadingStep5">
+                        Evolution
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             SOURCE MODAL
+        ====================================================== -->
+
+        <div
+            id="sourceModal"
+            class="modal hidden"
+        >
+
+            <div
+                class="modal-backdrop"
+                onclick="closeSourceModal()"
+            ></div>
+
+            <div class="modal-card">
+
+                <button
+                    type="button"
+                    class="modal-close"
+                    onclick="closeSourceModal()"
+                    aria-label="Close source"
+                >
+                    ×
+                </button>
+
+                <div class="eyebrow">
+                    LITERATURE SOURCE
+                </div>
+
+                <h2 id="modalSourceTitle">
+                    Source
+                </h2>
+
+                <div
+                    id="modalSourceContent"
+                    class="modal-content"
+                ></div>
+
+                <a
+                    id="modalSourceLink"
+                    class="primary-button inline-button"
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Open Source →
+                </a>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<script src="app.js"></script>
+
+</body>
+</html>
